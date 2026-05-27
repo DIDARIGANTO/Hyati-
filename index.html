@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIYATI — Taste of Kazakhstan | Сухофрукты, орехи, чай</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Marcellus&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --emerald-darkest: #0a1f17;
+  --emerald-dark: #102e22;
+  --emerald: #1a4332;
+  --emerald-light: #225943;
+  --gold: #c9a961;
+  --gold-bright: #e6c987;
+  --gold-deep: #9b7d3e;
+  --cream: #f5ecd7;
+  --cream-soft: #ebe0c5;
+  --parchment: #d9c89e;
+  --ink: #2a1f10;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--emerald-darkest);
+  color: var(--cream);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Decorative ornament SVG used as repeating texture */
+.ornament-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23c9a961' stroke-width='0.8'%3E%3Cpath d='M60 10 L70 30 L90 30 L75 45 L80 65 L60 55 L40 65 L45 45 L30 30 L50 30 Z'/%3E%3Ccircle cx='60' cy='60' r='25'/%3E%3Ccircle cx='60' cy='60' r='15'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10, 31, 23, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+  padding: 18px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Marcellus', serif;
+  font-size: 26px;
+  letter-spacing: 4px;
+  color: var(--gold-bright);
+}
+
+.logo-mark {
+  width: 32px;
+  height: 32px;
+}
+
+nav ul {
+  display: flex;
+  gap: 38px;
+  list-style: none;
+}
+
+nav a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: color 0.3s;
+  position: relative;
+}
+
+nav a:hover { color: var(--gold-bright); }
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: all 0.3s;
+  transform: translateX(-50%);
+}
+
+nav a:hover::after { width: 100%; }
+
+.cart-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-bright);
+  padding: 10px 22px;
+  font-family: 'Marcellus', serif;
+  letter-spacing: 2px;
+  font-size: 13px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.cart-btn:hover {
+  background: var(--gold);
+  color: var(--emerald-darkest);
+}
+
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--gold-bright);
+  color: var(--emerald-darkest);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+}
+
+.cart-count.hidden { display: none; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 120px 5% 80px;
+  text-align: center;
+  background: 
+    radial-gradient(ellipse at top, rgba(201, 169, 97, 0.08), transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(34, 89, 67, 0.4), transparent 70%),
+    var(--emerald-darkest);
+}
+
+.hero-frame {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 60px 40px;
+}
+
+.hero-ornament-top, .hero-ornament-bottom {
+  width: 240px;
+  height: 40px;
+  margin: 0 auto;
+  display: block;
+}
+
+.hero-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin: 30px 0 20px;
+  opacity: 0;
+  animation: fadeUp 1s 0.3s forwards;
+}
+
+.hero h1 {
+  font-family: 'Marcellus', serif;
+  font-size: clamp(48px, 9vw, 120px);
+  letter-spacing: 12px;
+  color: var(--gold-bright);
+  margin: 0 0 24px;
+  line-height: 1;
+  opacity: 0;
+  animation: fadeUp 1s 0.5s forwards;
+  text-shadow: 0 4px 20px rgba(201, 169, 97, 0.15);
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(20px, 2.5vw, 28px);
+  color: var(--cream);
+  font-weight: 300;
+  letter-spacing: 3px;
+  margin-bottom: 50px;
+  opacity: 0;
+  animation: fadeUp 1s 0.7s forwards;
+}
+
+.hero-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--parchment);
+  max-width: 560px;
+  margin: 0 auto 50px;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeUp 1s 0.9s forwards;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  color: var(--emerald-darkest);
+  padding: 18px 50px;
+  font-family: 'Marcellus', serif;
+  letter-spacing: 4px;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s;
+  opacity: 0;
+  animation: fadeUp 1s 1.1s forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.hero-cta:hover::before { opacity: 1; }
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201, 169, 97, 0.3); }
+.hero-cta span { position: relative; z-index: 1; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+}
+
+/* ===== SECTION COMMON ===== */
+section {
+  padding: 100px 5%;
+  position: relative;
+  z-index: 2;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Marcellus', serif;
+  font-size: clamp(36px, 5vw, 58px);
+  color: var(--gold-bright);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 20px auto;
+  position: relative;
+}
+
+.section-divider::before, .section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.section-divider::before { left: -16px; }
+.section-divider::after { right: -16px; }
+
+/* ===== PRODUCTS ===== */
+.products-section {
+  background: linear-gradient(180deg, var(--emerald-darkest), var(--emerald-dark));
+}
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 50px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  color: var(--cream);
+  padding: 12px 26px;
+  font-family: 'Marcellus', serif;
+  letter-spacing: 2px;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.tab-btn:hover, .tab-btn.active {
+  background: var(--gold);
+  color: var(--emerald-darkest);
+  border-color: var(--gold);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: linear-gradient(180deg, var(--emerald), var(--emerald-dark));
+  border: 1px solid rgba(201, 169, 97, 0.2);
+  padding: 30px 24px;
+  text-align: center;
+  position: relative;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(201, 169, 97, 0.12), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.product-card:hover::before { opacity: 1; }
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.product-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--gold);
+  opacity: 0.5;
+}
+
+.product-corner.tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+.product-corner.tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+.product-corner.bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+.product-corner.br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+.product-emoji {
+  font-size: 64px;
+  display: block;
+  margin: 10px 0 16px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+
+.product-name {
+  font-family: 'Marcellus', serif;
+  font-size: 20px;
+  color: var(--gold-bright);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.product-origin {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--parchment);
+  font-size: 13px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.product-desc {
+  font-size: 13px;
+  color: var(--cream-soft);
+  opacity: 0.85;
+  margin-bottom: 18px;
+  line-height: 1.6;
+  min-height: 50px;
+}
+
+.product-price {
+  font-family: 'Marcellus', serif;
+  font-size: 22px;
+  color: var(--gold-bright);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.product-price-unit {
+  font-size: 13px;
+  color: var(--parchment);
+  letter-spacing: 1px;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.qty-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Marcellus', serif;
+}
+
+.qty-btn:hover {
+  background: var(--gold);
+  color: var(--emerald-darkest);
+}
+
+.qty-value {
+  font-family: 'Marcellus', serif;
+  color: var(--cream);
+  font-size: 16px;
+  min-width: 30px;
+}
+
+.add-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-bright);
+  padding: 12px 28px;
+  font-family: 'Marcellus', serif;
+  letter-spacing: 2px;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.add-btn:hover {
+  background: var(--gold);
+  color: var(--emerald-darkest);
+}
+
+.add-btn.added {
+  background: var(--emerald-light);
+  border-color: var(--emerald-light);
+  color: var(--gold-bright);
+}
+
+/* ===== ABOUT ===== */
+.about {
+  background: var(--emerald-darkest);
+  padding: 120px 5%;
+}
+
+.about-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-text h2 {
+  font-family: 'Marcellus', serif;
+  font-size: 44px;
+  color: var(--gold-bright);
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.about-text p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  color: var(--cream);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.feature {
+  border-left: 1px solid var(--gold);
+  padding-left: 16px;
+}
+
+.feature-num {
+  font-family: 'Marcellus', serif;
+  font-size: 32px;
+  color: var(--gold-bright);
+  margin-bottom: 4px;
+}
+
+.feature-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--parchment);
+  text-transform: uppercase;
+}
+
+/* ===== CART DRAWER ===== */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 31, 23, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.cart-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: min(460px, 100%);
+  height: 100vh;
+  background: var(--emerald-dark);
+  border-left: 1px solid var(--gold);
+  z-index: 201;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+}
+
+.cart-drawer.open { transform: translateX(0); }
+
+.cart-header {
+  padding: 28px;
+  border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-header h3 {
+  font-family: 'Marcellus', serif;
+  color: var(--gold-bright);
+  letter-spacing: 4px;
+  font-size: 22px;
+}
+
+.cart-close {
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 28px;
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 60px 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--parchment);
+  font-size: 18px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+}
+
+.cart-item-emoji {
+  font-size: 36px;
+  width: 50px;
+  text-align: center;
+}
+
+.cart-item-info { flex: 1; }
+
+.cart-item-name {
+  font-family: 'Marcellus', serif;
+  color: var(--gold-bright);
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+.cart-item-price {
+  font-size: 13px;
+  color: var(--cream-soft);
+  opacity: 0.8;
+}
+
+.cart-item-qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-item-qty button {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.cart-item-qty span {
+  color: var(--cream);
+  min-width: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.cart-footer {
+  padding: 24px 28px;
+  border-top: 1px solid rgba(201, 169, 97, 0.2);
+  background: var(--emerald-darkest);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+  font-family: 'Marcellus', serif;
+  letter-spacing: 2px;
+}
+
+.cart-total-label {
+  font-size: 13px;
+  color: var(--parchment);
+  text-transform: uppercase;
+}
+
+.cart-total-value {
+  font-size: 28px;
+  color: var(--gold-bright);
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkout-form input, .checkout-form textarea {
+  background: transparent;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  color: var(--cream);
+  padding: 12px 14px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.checkout-form input:focus, .checkout-form textarea:focus {
+  border-color: var(--gold);
+}
+
+.checkout-form input::placeholder, .checkout-form textarea::placeholder {
+  color: rgba(245, 236, 215, 0.4);
+  font-style: italic;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  color: var(--emerald-darkest);
+  border: none;
+  padding: 16px;
+  font-family: 'Marcellus', serif;
+  letter-spacing: 3px;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.whatsapp-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--emerald-darkest);
+  padding: 60px 5% 30px;
+  border-top: 1px solid rgba(201, 169, 97, 0.2);
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Marcellus', serif;
+  font-size: 28px;
+  letter-spacing: 8px;
+  color: var(--gold-bright);
+  margin-bottom: 8px;
+}
+
+.footer-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--parchment);
+  letter-spacing: 3px;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  color: var(--cream-soft);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.footer-info a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.footer-bottom {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--parchment);
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--emerald);
+  border: 1px solid var(--gold);
+  color: var(--gold-bright);
+  padding: 16px 30px;
+  font-family: 'Marcellus', serif;
+  letter-spacing: 2px;
+  font-size: 13px;
+  z-index: 300;
+  opacity: 0;
+  transition: all 0.4s;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 50px; }
+  .hero h1 { letter-spacing: 6px; }
+  .cart-drawer { width: 100%; }
+  .logo { font-size: 20px; letter-spacing: 2px; }
+  .footer-info { flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="ornament-bg"></div>
+
+<header>
+  <div class="logo">
+    <svg class="logo-mark" viewBox="0 0 32 32" fill="none">
+      <path d="M16 2 L20 12 L30 14 L22 21 L25 31 L16 26 L7 31 L10 21 L2 14 L12 12 Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+      <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+    </svg>
+    HIYATI
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#products">Каталог</a></li>
+      <li><a href="#about">О бренде</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+  </nav>
+  <button class="cart-btn" onclick="openCart()">
+    Корзина
+    <span class="cart-count hidden" id="cartCount">0</span>
+  </button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-frame">
+    <svg class="hero-ornament-top" viewBox="0 0 240 40" fill="none" stroke="#c9a961" stroke-width="0.8">
+      <path d="M0 20 L80 20 M160 20 L240 20"/>
+      <path d="M100 20 Q110 5, 120 20 Q130 35, 140 20"/>
+      <circle cx="120" cy="20" r="3" fill="#c9a961"/>
+      <path d="M80 20 L90 15 L90 25 Z" fill="#c9a961"/>
+      <path d="M160 20 L150 15 L150 25 Z" fill="#c9a961"/>
+    </svg>
+    <div class="hero-eyebrow">Taste of Kazakhstan</div>
+    <h1>HIYATI</h1>
+    <div class="hero-sub">Восточная роскошь в каждом подарке</div>
+    <div class="hero-quote">
+      "Жердің байлығы — адал еңбекте,<br>
+      Адамның байлығы — жақсы сөзде,<br>
+      Дастарханның байлығы — қонақжайлықта."
+    </div>
+    <a href="#products" class="hero-cta"><span>Открыть каталог</span></a>
+    <svg class="hero-ornament-bottom" viewBox="0 0 240 40" fill="none" stroke="#c9a961" stroke-width="0.8" style="margin-top: 60px;">
+      <path d="M0 20 L80 20 M160 20 L240 20"/>
+      <path d="M100 20 Q110 5, 120 20 Q130 35, 140 20"/>
+      <circle cx="120" cy="20" r="3" fill="#c9a961"/>
+      <path d="M80 20 L90 15 L90 25 Z" fill="#c9a961"/>
+      <path d="M160 20 L150 15 L150 25 Z" fill="#c9a961"/>
+    </svg>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="section-header">
+    <div class="section-eyebrow">Наш ассортимент</div>
+    <h2 class="section-title">Каталог</h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="category-tabs">
+    <button class="tab-btn active" data-cat="all">Всё</button>
+    <button class="tab-btn" data-cat="gift">Подарочные наборы</button>
+    <button class="tab-btn" data-cat="dried">Сухофрукты</button>
+    <button class="tab-btn" data-cat="nuts">Орехи</button>
+    <button class="tab-btn" data-cat="tea">Чай Hiyati</button>
+  </div>
+
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <svg viewBox="0 0 400 400" style="width: 100%; max-width: 380px;">
+        <defs>
+          <radialGradient id="g1" cx="50%" cy="50%">
+            <stop offset="0%" stop-color="#c9a961" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#c9a961" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="200" cy="200" r="180" fill="url(#g1)"/>
+        <g fill="none" stroke="#c9a961" stroke-width="1">
+          <circle cx="200" cy="200" r="150"/>
+          <circle cx="200" cy="200" r="120"/>
+          <circle cx="200" cy="200" r="90"/>
+          <path d="M200 50 L220 180 L350 200 L220 220 L200 350 L180 220 L50 200 L180 180 Z" fill="#c9a961" opacity="0.15"/>
+          <path d="M200 80 L215 185 L320 200 L215 215 L200 320 L185 215 L80 200 L185 185 Z" stroke="#e6c987" stroke-width="0.8"/>
+          <g transform="translate(200 200)">
+            <g id="petal">
+              <path d="M0 -70 Q15 -40 0 -10 Q-15 -40 0 -70" fill="#c9a961" opacity="0.6"/>
+            </g>
+            <use href="#petal" transform="rotate(45)"/>
+            <use href="#petal" transform="rotate(90)"/>
+            <use href="#petal" transform="rotate(135)"/>
+            <use href="#petal" transform="rotate(180)"/>
+            <use href="#petal" transform="rotate(225)"/>
+            <use href="#petal" transform="rotate(270)"/>
+            <use href="#petal" transform="rotate(315)"/>
+          </g>
+          <circle cx="200" cy="200" r="20" fill="#1a4332" stroke="#e6c987" stroke-width="1.5"/>
+          <text x="200" y="206" text-anchor="middle" fill="#e6c987" font-family="Marcellus" font-size="14" letter-spacing="2">H</text>
+        </g>
+      </svg>
+    </div>
+    <div class="about-text">
+      <h2>Наследие Востока</h2>
+      <p>Hiyati — это история о казахстанском гостеприимстве, рассказанная языком восточных деликатесов. Мы тщательно отбираем сухофрукты, орехи и специи в лучших садах Центральной Азии и Ближнего Востока.</p>
+      <p>Каждый подарочный набор — это произведение искусства, в котором сочетаются вкус, традиция и роскошь.</p>
+      <div class="about-features">
+        <div class="feature">
+          <div class="feature-num">9</div>
+          <div class="feature-label">Филиалов в Астане</div>
+        </div>
+        <div class="feature">
+          <div class="feature-num">500+</div>
+          <div class="feature-label">Видов продукции</div>
+        </div>
+        <div class="feature">
+          <div class="feature-num">15</div>
+          <div class="feature-label">Сортов чая</div>
+        </div>
+        <div class="feature">
+          <div class="feature-num">100%</div>
+          <div class="feature-label">Натуральных</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-logo">HIYATI</div>
+  <div class="footer-tag">Taste of Kazakhstan</div>
+  <div class="footer-info">
+    <div>📍 Астана · 9 филиалов</div>
+    <div>📞 <a href="tel:+77764964656">+7 (776) 496-46-56</a></div>
+    <div>💬 <a href="https://wa.me/77764964656" target="_blank">WhatsApp</a></div>
+    <div>📷 <a href="https://instagram.com/hyati.tea" target="_blank">@hyati.tea</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 HIYATI · Восточная роскошь</div>
+</footer>
+
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Ваша корзина</h3>
+    <button class="cart-close" onclick="closeCart()">×</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Корзина пуста.<br>Добавьте товары из каталога.</div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="cart-total-label">Итого</span>
+      <span class="cart-total-value" id="cartTotal">0 ₸</span>
+    </div>
+    <form class="checkout-form" id="checkoutForm" onsubmit="sendToWhatsApp(event)">
+      <input type="text" id="customerName" placeholder="Ваше имя" required>
+      <input type="tel" id="customerPhone" placeholder="Телефон для связи" required>
+      <textarea id="customerNote" placeholder="Комментарий к заказу (необязательно)" rows="2"></textarea>
+      <button type="submit" class="submit-btn" id="submitBtn" disabled>
+        <svg class="whatsapp-icon" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3 2.9 1.2 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3zM12 0C5.4 0 0 5.4 0 12c0 2.1.5 4.1 1.5 5.9L0 24l6.3-1.6c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg>
+        Отправить заявку
+      </button>
+    </form>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ====== CONFIG: change phone here ======
+const WHATSAPP_NUMBER = '77764964656'; // Менеджер Hiyati (без +)
+
+// ====== PRODUCTS ======
+const PRODUCTS = [
+  // Подарочные наборы
+  {id:'g1', cat:'gift', name:'Diplomatic Premium', emoji:'🎁', origin:'Эксклюзивный набор · 8 секций', desc:'Премиум-набор в деревянной шкатулке с орнаментом. Курага, фисташки, грецкий орех, изюм, миндаль.', price:35000, unit:'набор'},
+  {id:'g2', cat:'gift', name:'Восточный круг', emoji:'🟡', origin:'Круглая шкатулка · 7 секций', desc:'Резная шкатулка ручной работы с ассорти орехов и сухофруктов высшего сорта.', price:22000, unit:'набор'},
+  {id:'g3', cat:'gift', name:'Шёлковый узелок', emoji:'👝', origin:'Подарок в холщовом мешке', desc:'Изысканная упаковка с золотой кистью. Идеально для близких и партнёров.', price:12500, unit:'набор'},
+  {id:'g4', cat:'gift', name:'Sultan Box', emoji:'📦', origin:'Кедровая шкатулка', desc:'Лимитированная серия с дизайнерским орнаментом. 5 секций премиум-сухофруктов.', price:28000, unit:'набор'},
+
+  // Сухофрукты
+  {id:'d1', cat:'dried', name:'Курага Каиси', emoji:'🍑', origin:'Узбекистан · Премиум', desc:'Крупная сладкая курага без сахара и консервантов. Натуральный продукт.', price:5500, unit:'кг'},
+  {id:'d2', cat:'dried', name:'Финики Меджул', emoji:'🍯', origin:'Иордания · Royal', desc:'Король фиников — мясистые, сочные, с медовым вкусом. Высший сорт.', price:8900, unit:'кг'},
+  {id:'d3', cat:'dried', name:'Изюм Шигани', emoji:'🍇', origin:'Иран · Сорт Голден', desc:'Сладкий мягкий изюм без косточек. Без обработки серой.', price:3200, unit:'кг'},
+  {id:'d4', cat:'dried', name:'Чернослив', emoji:'🟣', origin:'Чили · Без косточки', desc:'Крупный мягкий чернослив, насыщенный сладостью и ароматом.', price:4500, unit:'кг'},
+  {id:'d5', cat:'dried', name:'Инжир сушёный', emoji:'🟤', origin:'Турция · Лорд', desc:'Натуральный сушёный инжир высшего качества, мягкий и ароматный.', price:6800, unit:'кг'},
+  {id:'d6', cat:'dried', name:'Ананас сушёный', emoji:'🍍', origin:'Таиланд', desc:'Кусочки спелого ананаса с естественной сладостью. Идеально к чаю.', price:4200, unit:'кг'},
+
+  // Орехи
+  {id:'n1', cat:'nuts', name:'Фисташки Иранские', emoji:'🥜', origin:'Иран · Жареные с солью', desc:'Крупные раскрытые фисташки премиум-класса. Натуральный солёный вкус.', price:9500, unit:'кг'},
+  {id:'n2', cat:'nuts', name:'Грецкий орех', emoji:'🌰', origin:'Кыргызстан · Светлый', desc:'Очищенные половинки светлого грецкого ореха. Свежий урожай.', price:6500, unit:'кг'},
+  {id:'n3', cat:'nuts', name:'Миндаль Калифорния', emoji:'🟫', origin:'США · Natural', desc:'Сырой очищенный миндаль высшего качества. Богат витамином E.', price:7200, unit:'кг'},
+  {id:'n4', cat:'nuts', name:'Кешью W320', emoji:'🟡', origin:'Вьетнам · Premium', desc:'Крупные цельные ядра кешью, обжаренные без масла.', price:8800, unit:'кг'},
+  {id:'n5', cat:'nuts', name:'Кедровый орех', emoji:'🌲', origin:'Сибирь · Очищенный', desc:'Свежие очищенные кедровые орешки. Деликатес для гурманов.', price:24000, unit:'кг'},
+  {id:'n6', cat:'nuts', name:'Фундук жареный', emoji:'🟤', origin:'Турция · Без скорлупы', desc:'Обжаренный фундук с насыщенным вкусом. Чистый продукт.', price:6900, unit:'кг'},
+
+  // Чай
+  {id:'t1', cat:'tea', name:'Чай Hiyati №1', emoji:'🍵', origin:'Зелёный · Сорт А', desc:'Классический зелёный чай высшего сорта с тонким ароматом.', price:2800, unit:'250г'},
+  {id:'t2', cat:'tea', name:'Ташкентский', emoji:'☕', origin:'Чёрный байховый', desc:'Крепкий ароматный чёрный чай в традициях восточного чаепития.', price:2200, unit:'250г'},
+  {id:'t3', cat:'tea', name:'Восточная смесь', emoji:'🌿', origin:'С травами и специями', desc:'Авторский купаж с кардамоном, корицей и сушёным цветом.', price:3500, unit:'250г'},
+  {id:'t4', cat:'tea', name:'Чай с шафраном', emoji:'🌼', origin:'Премиум-серия', desc:'Эксклюзивный чай с настоящим иранским шафраном.', price:5500, unit:'250г'}
+];
+
+// ====== STATE ======
+let cart = {};
+let activeCategory = 'all';
+
+// ====== RENDER PRODUCTS ======
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  const list = activeCategory === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === activeCategory);
+  grid.innerHTML = list.map(p => `
+    <div class="product-card">
+      <div class="product-corner tl"></div>
+      <div class="product-corner tr"></div>
+      <div class="product-corner bl"></div>
+      <div class="product-corner br"></div>
+      <span class="product-emoji">${p.emoji}</span>
+      <div class="product-name">${p.name}</div>
+      <div class="product-origin">${p.origin}</div>
+      <div class="product-desc">${p.desc}</div>
+      <div class="product-price">${p.price.toLocaleString('ru-RU')} ₸ <span class="product-price-unit">/ ${p.unit}</span></div>
+      <div class="qty-control">
+        <button class="qty-btn" onclick="changeQty('${p.id}', -1)">−</button>
+        <span class="qty-value" id="qty-${p.id}">${cart[p.id]?.qty || 0}</span>
+        <button class="qty-btn" onclick="changeQty('${p.id}', 1)">+</button>
+      </div>
+      <button class="add-btn ${cart[p.id] ? 'added' : ''}" onclick="addToCart('${p.id}')" id="btn-${p.id}">
+        ${cart[p.id] ? '✓ В корзине' : 'В корзину'}
+      </button>
+    </div>
+  `).join('');
+}
+
+// ====== CATEGORY TABS ======
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCategory = btn.dataset.cat;
+    renderProducts();
+  });
+});
+
+// ====== CART LOGIC ======
+function addToCart(id) {
+  const product = PRODUCTS.find(p => p.id === id);
+  if (!cart[id]) {
+    cart[id] = { ...product, qty: 1 };
+  } else {
+    cart[id].qty++;
+  }
+  updateCart();
+  showToast(`${product.name} добавлен в корзину`);
+}
+
+function changeQty(id, delta) {
+  if (!cart[id] && delta > 0) {
+    addToCart(id);
+    return;
+  }
+  if (cart[id]) {
+    cart[id].qty += delta;
+    if (cart[id].qty <= 0) delete cart[id];
+    updateCart();
+  }
+}
+
+function updateCart() {
+  // Update product card qty + buttons
+  PRODUCTS.forEach(p => {
+    const qtyEl = document.getElementById(`qty-${p.id}`);
+    const btnEl = document.getElementById(`btn-${p.id}`);
+    if (qtyEl) qtyEl.textContent = cart[p.id]?.qty || 0;
+    if (btnEl) {
+      if (cart[p.id]) {
+        btnEl.classList.add('added');
+        btnEl.textContent = '✓ В корзине';
+      } else {
+        btnEl.classList.remove('added');
+        btnEl.textContent = 'В корзину';
+      }
+    }
+  });
+
+  // Update cart count
+  const totalQty = Object.values(cart).reduce((s, i) => s + i.qty, 0);
+  const countEl = document.getElementById('cartCount');
+  countEl.textContent = totalQty;
+  countEl.classList.toggle('hidden', totalQty === 0);
+
+  // Update cart drawer
+  const itemsEl = document.getElementById('cartItems');
+  const items = Object.values(cart);
+  if (items.length === 0) {
+    itemsEl.innerHTML = '<div class="cart-empty">Корзина пуста.<br>Добавьте товары из каталога.</div>';
+  } else {
+    itemsEl.innerHTML = items.map(item => `
+      <div class="cart-item">
+        <span class="cart-item-emoji">${item.emoji}</span>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">${item.price.toLocaleString('ru-RU')} ₸ × ${item.qty} ${item.unit}</div>
+        </div>
+        <div class="cart-item-qty">
+          <button onclick="changeQty('${item.id}', -1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="changeQty('${item.id}', 1)">+</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Update total
+  const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+  document.getElementById('cartTotal').textContent = total.toLocaleString('ru-RU') + ' ₸';
+  document.getElementById('submitBtn').disabled = items.length === 0;
+}
+
+// ====== CART DRAWER ======
+function openCart() {
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+}
+function closeCart() {
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+}
+
+// ====== TOAST ======
+let toastTimeout;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// ====== WHATSAPP SUBMIT ======
+function sendToWhatsApp(e) {
+  e.preventDefault();
+  const name = document.getElementById('customerName').value.trim();
+  const phone = document.getElementById('customerPhone').value.trim();
+  const note = document.getElementById('customerNote').value.trim();
+  const items = Object.values(cart);
+  if (items.length === 0) return;
+
+  let message = `🌿 *НОВАЯ ЗАЯВКА HIYATI*\n\n`;
+  message += `👤 *Клиент:* ${name}\n`;
+  message += `📞 *Телефон:* ${phone}\n`;
+  if (note) message += `💬 *Комментарий:* ${note}\n`;
+  message += `\n📦 *Заказ:*\n`;
+  items.forEach((item, i) => {
+    message += `${i+1}. ${item.name} — ${item.qty} ${item.unit} × ${item.price.toLocaleString('ru-RU')} ₸ = *${(item.qty * item.price).toLocaleString('ru-RU')} ₸*\n`;
+  });
+  const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+  message += `\n💰 *ИТОГО: ${total.toLocaleString('ru-RU')} ₸*\n\n`;
+  message += `_Отправлено через сайт hiyati.kz_`;
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+  showToast('Заявка отправлена в WhatsApp');
+}
+
+// ====== INIT ======
+renderProducts();
+</script>
+</body>
+</html>
